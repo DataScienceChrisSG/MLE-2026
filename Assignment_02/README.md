@@ -15,6 +15,8 @@ docker-compose up          # Airflow UI: http://localhost:8080  (admin / admin)
 The DAG `loan_default_ml_pipeline` is un-paused on start-up and back-fills 31 monthly runs in order.
 Outputs are written into this folder (the shipped `datamart/`, `model_bank/` and `reports/` already hold a complete run).
 Linux hosts: `echo "AIRFLOW_UID=$(id -u)" > .env` before `docker-compose up`.
+Run it from a local folder, not one synced by OneDrive, iCloud Drive, Dropbox or Google Drive: the sync client moves and locks files
+while Spark writes them, and tasks then fail with "path does not exist". To start again from scratch: `docker-compose down -v`.
 
 ## Folder structure
 
@@ -59,12 +61,20 @@ reports/                           monitoring_report.html and monitoring/*.png
 | Decision | Why |
 |---|---|
 | Keep the Assignment 1 feature store; classmates' datamarts not adopted | Their pipelines fit imputation / capping on the full dataset (train-test contamination) or drop customers without clickstream. Their extra ratios were tested and added no out-of-time lift (±0.001 AUC). |
-| Two models with routing on clickstream availability | Clickstream lifts AUC from ~0.80 to ~0.91, but stops for applicants from Jul 2024. A single clickstream model then over-predicts default (46% vs 29% actual) and approvals at a fixed cut-off fall from 67% to 38%. Routing avoids this without anyone having to react. |
+| Two models with routing on clickstream availability | On the same applicants (Jan–Jun 2024) the clickstream model scores AUC 0.88 vs 0.80 without it, but clickstream stops for applicants from Jul 2024. A single clickstream model then over-predicts default (46% vs 29% actual) and approvals at a fixed cut-off fall from 67% to 38%. Routing avoids this without anyone having to react. |
 | Go-live Jan 2024, score only new applications | Earlier months are needed to train (labels arrive 6 months late); scoring training months would flatter monitoring. |
 | Retrain every 2 months | Back-tested monthly / 2-monthly / quarterly / 6-monthly / never: 0.863 / 0.862 / 0.861 / 0.858 / 0.853 mean monthly AUC. 2-monthly captures the early gains when data is scarce. |
 | Monitoring split by label lag | Stability is known immediately; performance only when the 6-month label matures. |
 | One task at a time; silver/gold files written to a temporary folder, verified, then swapped in | The project folder is shared with the host. Writing in place and running several Spark jobs at once let a just-written file go missing for the next task on Docker Desktop (macOS). A task now only reports success once its file is verified, and failed tasks retry twice. |
 | Preprocessing inside one sklearn pipeline | Fitted on training data only, travels with the model: no contamination, no train/serve skew. |
+
+## Data leakage controls
+
+| Type (from the brief) | How the pipeline prevents it |
+|---|---|
+| Target leakage | Features use only information available at the application date (gold feature store); the label (30 dpd at month 6) comes from repayments after the loan starts and is never a feature. |
+| Train-test contamination | Imputation and scaling sit inside one scikit-learn pipeline that is fitted only on the data each model is trained on (never on test or out-of-time data); the classmates' datamarts were not adopted partly because they fit these steps on the full dataset. |
+| Temporal leakage | Each monthly run trains only on applications whose 6-month label was already observed on the run date. The go-live decision uses the 2 newest labelled months, which come after all training data (out-of-time). Cross-validation and the test set are a random split of the older months and are used only for tuning and choosing the algorithm. Each month is scored with the version that was live on that date. |
 
 ## Model governance and refresh SOP
 
