@@ -1,0 +1,10 @@
+# Pinned to match apache/airflow:2.10.5-python3.12 (its constraints file pins numpy, pandas, pyarrow, pyspark, setuptools)
+numpy==1.26.4
+pandas==2.1.4
+pyarrow==19.0.0
+pyspark==3.5.4
+setuptools==75.8.0
+scipy==1.15.1
+scikit-learn==1.6.1
+xgboost==2.1.4
+matplotlib==3.10.0
