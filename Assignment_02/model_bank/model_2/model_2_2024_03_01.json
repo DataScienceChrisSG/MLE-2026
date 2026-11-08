@@ -11,12 +11,25 @@
       "2023-01-01",
       "2023-07-01"
     ],
+    "train_months": [
+      "2023-01-01",
+      "2023-06-01"
+    ],
+    "test_months": [
+      "2023-07-01",
+      "2023-07-01"
+    ],
+    "cv_validation_months": [
+      "2023-04-01",
+      "2023-05-01",
+      "2023-06-01"
+    ],
     "oot_months": [
       "2023-08-01",
       "2023-09-01"
     ],
-    "n_train": 2844,
-    "n_test": 712,
+    "n_train": 3085,
+    "n_test": 471,
     "n_dev": 3556,
     "n_oot": 935,
     "default_rate_dev": 0.28374578177727783,
@@ -82,61 +95,61 @@
   ],
   "n_features": 56,
   "hyperparameters": {
-    "subsample": 1.0,
-    "reg_lambda": 2,
+    "subsample": 0.6,
+    "reg_lambda": 1,
     "n_estimators": 100,
-    "min_child_weight": 10,
+    "min_child_weight": 1,
     "max_depth": 5,
     "learning_rate": 0.05,
-    "gamma": 0.1,
+    "gamma": 0.5,
     "colsample_bytree": 0.7
   },
-  "decision_threshold": 0.26353779435157776,
+  "decision_threshold": 0.34224140644073486,
   "metrics": {
-    "cv_auc": 0.7975392050048088,
-    "train_auc": 0.9090767517165401,
-    "test_auc": 0.7900310619297224,
-    "oot_auc": 0.8291367524303529,
-    "oot_gini": 0.6582735048607058,
-    "oot_ks": 0.5468207893923259,
+    "cv_auc": 0.819187715857555,
+    "train_auc": 0.9454563110426109,
+    "test_auc": 0.770738023305999,
+    "oot_auc": 0.8291997297699608,
+    "oot_gini": 0.6583994595399216,
+    "oot_ks": 0.5440440612368749,
     "oot_default_rate": 0.27593582887700535,
-    "oot_mean_pd": 0.28087136149406433,
-    "oot_accuracy": 0.7700534759358288,
-    "oot_precision": 0.5630498533724341,
-    "oot_recall": 0.7441860465116279,
-    "oot_f1": 0.6410684474123539,
-    "oot_approval_rate": 0.6352941176470588,
-    "oot_bad_rate_approved": 0.1111111111111111,
-    "oot_bad_rate_declined": 0.5630498533724341
+    "oot_mean_pd": 0.279008150100708,
+    "oot_accuracy": 0.7893048128342246,
+    "oot_precision": 0.6055363321799307,
+    "oot_recall": 0.6782945736434108,
+    "oot_f1": 0.639853747714808,
+    "oot_approval_rate": 0.6909090909090909,
+    "oot_bad_rate_approved": 0.12848297213622292,
+    "oot_bad_rate_declined": 0.6055363321799307
   },
   "algorithm_comparison": {
     "logistic_regression": {
-      "cv_auc": 0.7697558002237419,
-      "train_auc": 0.7930668019580754,
-      "test_auc": 0.7501456027955735
+      "cv_auc": 0.7875548273172192,
+      "train_auc": 0.7932231537141742,
+      "test_auc": 0.7399654725938716
     },
     "xgboost": {
-      "cv_auc": 0.7975392050048088,
-      "train_auc": 0.9090767517165401,
-      "test_auc": 0.7900310619297224
+      "cv_auc": 0.819187715857555,
+      "train_auc": 0.9454563110426109,
+      "test_auc": 0.770738023305999
     }
   },
   "top_features": {
-    "Outstanding_Debt": 0.16338223218917847,
-    "Interest_Rate": 0.06282898783683777,
-    "debt_to_annual_income": 0.03699595853686333,
-    "Num_of_Loan": 0.03554737940430641,
-    "Num_Credit_Inquiries": 0.03352334350347519,
-    "credit_mix_ordinal": 0.03165952488780022,
-    "Num_of_Delayed_Payment": 0.03104649856686592,
-    "Delay_from_due_date": 0.02726355940103531,
-    "Num_Credit_Card": 0.027136947959661484,
-    "Changed_Credit_Limit": 0.02688596583902836,
-    "occupation_writer": 0.021510258316993713,
-    "Credit_History_Age_months": 0.021296685561537743,
-    "spend_level_high": 0.021172191947698593,
-    "min_payment_nm": 0.021162355318665504,
-    "Num_Bank_Accounts": 0.020747438073158264
+    "Outstanding_Debt": 0.09283143281936646,
+    "Interest_Rate": 0.03729680925607681,
+    "Delay_from_due_date": 0.03068680875003338,
+    "debt_to_annual_income": 0.02890070155262947,
+    "credit_mix_ordinal": 0.027974292635917664,
+    "occupation_manager": 0.02759621851146221,
+    "Num_Credit_Card": 0.02588144689798355,
+    "Num_Credit_Inquiries": 0.0254190843552351,
+    "spend_level_high": 0.024794427677989006,
+    "Changed_Credit_Limit": 0.023930225521326065,
+    "occupation_teacher": 0.023833245038986206,
+    "Num_of_Delayed_Payment": 0.02308785356581211,
+    "occupation_writer": 0.021627899259328842,
+    "Num_Bank_Accounts": 0.02018130198121071,
+    "occupation_accountant": 0.019948037341237068
   },
   "environment": {
     "python": "3.12.9",
@@ -144,7 +157,7 @@
     "xgboost": "2.1.4",
     "pandas": "2.1.4"
   },
-  "created_at": "2026-11-07T15:09:18",
+  "created_at": "2026-11-08T02:11:46",
   "retrain_reason": "scheduled retrain (every 2 months from go-live)",
   "data_end": "2023-09-01"
 }

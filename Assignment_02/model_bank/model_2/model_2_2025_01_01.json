@@ -11,12 +11,25 @@
       "2023-01-01",
       "2024-05-01"
     ],
+    "train_months": [
+      "2023-01-01",
+      "2024-02-01"
+    ],
+    "test_months": [
+      "2024-03-01",
+      "2024-05-01"
+    ],
+    "cv_validation_months": [
+      "2023-12-01",
+      "2024-01-01",
+      "2024-02-01"
+    ],
     "oot_months": [
       "2024-06-01",
       "2024-07-01"
     ],
-    "n_train": 6780,
-    "n_test": 1696,
+    "n_train": 6961,
+    "n_test": 1515,
     "n_dev": 8476,
     "n_oot": 1003,
     "default_rate_dev": 0.2873997168475696,
@@ -82,61 +95,61 @@
   ],
   "n_features": 56,
   "hyperparameters": {
-    "subsample": 0.8,
-    "reg_lambda": 5,
-    "n_estimators": 200,
-    "min_child_weight": 10,
-    "max_depth": 5,
-    "learning_rate": 0.02,
-    "gamma": 0,
-    "colsample_bytree": 0.7
+    "subsample": 0.6,
+    "reg_lambda": 1,
+    "n_estimators": 300,
+    "min_child_weight": 1,
+    "max_depth": 3,
+    "learning_rate": 0.05,
+    "gamma": 0.1,
+    "colsample_bytree": 0.9
   },
-  "decision_threshold": 0.29220062494277954,
+  "decision_threshold": 0.28775477409362793,
   "metrics": {
-    "cv_auc": 0.8068882340340989,
-    "train_auc": 0.8685948316302943,
-    "test_auc": 0.8216898246043111,
-    "oot_auc": 0.8249220313736443,
-    "oot_gini": 0.6498440627472886,
-    "oot_ks": 0.5561281012893916,
+    "cv_auc": 0.8162031568900726,
+    "train_auc": 0.8886574620982388,
+    "test_auc": 0.7980014606852842,
+    "oot_auc": 0.822408415956803,
+    "oot_gini": 0.6448168319136061,
+    "oot_ks": 0.5474700926313829,
     "oot_default_rate": 0.3090727816550349,
-    "oot_mean_pd": 0.29210981726646423,
+    "oot_mean_pd": 0.2905144989490509,
     "oot_accuracy": 0.7836490528414756,
-    "oot_precision": 0.6226912928759895,
-    "oot_recall": 0.7612903225806451,
-    "oot_f1": 0.6850507982583455,
-    "oot_approval_rate": 0.6221335992023929,
-    "oot_bad_rate_approved": 0.11858974358974358,
-    "oot_bad_rate_declined": 0.6226912928759895
+    "oot_precision": 0.6260162601626016,
+    "oot_recall": 0.7451612903225806,
+    "oot_f1": 0.6804123711340205,
+    "oot_approval_rate": 0.6321036889332003,
+    "oot_bad_rate_approved": 0.12460567823343849,
+    "oot_bad_rate_declined": 0.6260162601626016
   },
   "algorithm_comparison": {
     "logistic_regression": {
-      "cv_auc": 0.7712064832337863,
-      "train_auc": 0.7802114762715017,
-      "test_auc": 0.7845267271643372
+      "cv_auc": 0.7668140963595148,
+      "train_auc": 0.7817943062717235,
+      "test_auc": 0.7694035947712418
     },
     "xgboost": {
-      "cv_auc": 0.8068882340340989,
-      "train_auc": 0.8685948316302943,
-      "test_auc": 0.8216898246043111
+      "cv_auc": 0.8162031568900726,
+      "train_auc": 0.8886574620982388,
+      "test_auc": 0.7980014606852842
     }
   },
   "top_features": {
-    "Outstanding_Debt": 0.19355936348438263,
-    "Interest_Rate": 0.08731616288423538,
-    "credit_mix_ordinal": 0.057886991649866104,
-    "Delay_from_due_date": 0.039421554654836655,
-    "Num_Credit_Inquiries": 0.034650564193725586,
-    "min_payment_yes": 0.031933169811964035,
-    "Changed_Credit_Limit": 0.029790859669446945,
-    "Num_Credit_Card": 0.02622726559638977,
-    "debt_to_annual_income": 0.02582939714193344,
-    "Num_Bank_Accounts": 0.02534903958439827,
-    "Num_of_Delayed_Payment": 0.023384276777505875,
-    "Credit_History_Age_months": 0.021965015679597855,
-    "spend_level_high": 0.01999414712190628,
-    "min_payment_no": 0.01780579797923565,
-    "emi_to_monthly_salary": 0.015806887298822403
+    "Outstanding_Debt": 0.14917480945587158,
+    "Interest_Rate": 0.05304327234625816,
+    "credit_mix_ordinal": 0.036600641906261444,
+    "Num_Credit_Card": 0.030249983072280884,
+    "Delay_from_due_date": 0.029148533940315247,
+    "Changed_Credit_Limit": 0.027830202132463455,
+    "Num_Bank_Accounts": 0.024871088564395905,
+    "spend_level_high": 0.022687874734401703,
+    "Num_of_Delayed_Payment": 0.020919833332300186,
+    "emi_to_monthly_salary": 0.01887906715273857,
+    "occupation_architect": 0.018574239686131477,
+    "min_payment_nm": 0.017877833917737007,
+    "Num_Credit_Inquiries": 0.017263805493712425,
+    "min_payment_yes": 0.016639381647109985,
+    "Amount_invested_monthly": 0.016176538541913033
   },
   "environment": {
     "python": "3.12.9",
@@ -144,7 +157,7 @@
     "xgboost": "2.1.4",
     "pandas": "2.1.4"
   },
-  "created_at": "2026-11-07T15:22:47",
+  "created_at": "2026-11-08T02:26:27",
   "retrain_reason": "scheduled retrain (every 2 months from go-live)",
   "data_end": "2024-07-01"
 }

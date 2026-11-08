@@ -1,12 +1,15 @@
 """
 Train, evaluate and select a model for one slot at one run date.
 
-Split (all data has a label observed on or before the run date):
+Every split is by application month, oldest to newest, so no step ever learns from months that
+come after the ones it is evaluated on (all data has a label observed on or before the run date):
   - out-of-time (OOT): the latest OOT_MONTHS application months  -> never touched in training;
                        used for the promotion decision and as the monitoring reference
-  - development: older months, split 80/20 stratified into train / test
-      train -> hyper-parameter search with 3-fold cross-validation, scored on AUC of probabilities
-      test  -> pick the algorithm (ties go to the simpler logistic regression) and the cut-off
+  - development: the older months, split by time into
+      train -> the earlier ~80% of months; hyper-parameter search with walk-forward cross-validation
+               (validate on each of the last CV_FOLDS train months, fitting only on the months before it)
+      test  -> the latest ~20% of months; picks the algorithm (ties go to the simpler logistic
+               regression) and the cut-off
   The chosen configuration is then refit on train + test (all development data) for deployment.
 
 Every transformation (imputation, scaling) lives inside the sklearn pipeline, so it is fitted on
@@ -23,7 +26,7 @@ from scipy.stats import loguniform
 from sklearn.base import clone
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold, train_test_split
+from sklearn.model_selection import RandomizedSearchCV
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
@@ -87,6 +90,26 @@ def reference_profile(pipeline, X, features, importance):
     }
 
 
+def time_split_months(dev_months):
+    """Latest ~TEST_MONTH_SHARE of development months (at least one) go to test; the rest to train."""
+    n_test = max(1, int(round(C.TEST_MONTH_SHARE * len(dev_months))))
+    train_months, test_months = dev_months[:-n_test], dev_months[-n_test:]
+    if len(train_months) < C.CV_FOLDS + 1:
+        raise ValueError(f"need at least {C.CV_FOLDS + 1} training months for walk-forward CV, got {len(train_months)}")
+    return train_months, test_months
+
+
+def walk_forward_folds(month_of_row, train_months):
+    """(fit_idx, val_idx) pairs: validate on each of the last CV_FOLDS months, fit on all earlier months."""
+    month_of_row = np.asarray(month_of_row)
+    folds = []
+    for val_month in train_months[-C.CV_FOLDS:]:
+        fit_idx = np.where(month_of_row < val_month)[0]
+        val_idx = np.where(month_of_row == val_month)[0]
+        folds.append((fit_idx, val_idx))
+    return folds
+
+
 def train_slot(slot, run_date):
     """Returns a model artefact (dict) for the best algorithm, trained on labels known at run_date."""
     data = ml_data.slot_population(ml_data.labelled_data(run_date), slot)
@@ -96,14 +119,20 @@ def train_slot(slot, run_date):
     dev = data[~data["snapshot_date"].isin(oot_months)]
     oot = data[data["snapshot_date"].isin(oot_months)]
 
-    X_dev, y_dev = dev[features].astype(float), dev["label"].astype(int)
-    X_tr, X_te, y_tr, y_te = train_test_split(X_dev, y_dev, test_size=C.TEST_SIZE, stratify=y_dev,
-                                              random_state=C.RANDOM_SEED, shuffle=True)
-    X_oot, y_oot = oot[features].astype(float), oot["label"].astype(int)
-    print(f"[{slot}] run {run_date}: train {len(X_tr)} | test {len(X_te)} | oot {len(X_oot)} "
-          f"(dev {months[0]}..{dev['snapshot_date'].max()}, oot {oot_months[0]}..{oot_months[-1]}) | {len(features)} features")
+    dev = dev.sort_values(["snapshot_date", "loan_id"]).reset_index(drop=True)
+    train_months, test_months = time_split_months(sorted(dev["snapshot_date"].unique()))
+    tr = dev[dev["snapshot_date"].isin(train_months)].reset_index(drop=True)
+    te = dev[dev["snapshot_date"].isin(test_months)].reset_index(drop=True)
 
-    cv = StratifiedKFold(n_splits=C.CV_FOLDS, shuffle=True, random_state=C.RANDOM_SEED)
+    X_dev, y_dev = dev[features].astype(float), dev["label"].astype(int)
+    X_tr, y_tr = tr[features].astype(float), tr["label"].astype(int)
+    X_te, y_te = te[features].astype(float), te["label"].astype(int)
+    X_oot, y_oot = oot[features].astype(float), oot["label"].astype(int)
+    print(f"[{slot}] run {run_date}: train {len(X_tr)} ({train_months[0]}..{train_months[-1]}) | "
+          f"test {len(X_te)} ({test_months[0]}..{test_months[-1]}) | oot {len(X_oot)} ({oot_months[0]}..{oot_months[-1]}) "
+          f"| {len(features)} features")
+
+    cv = walk_forward_folds(tr["snapshot_date"].values, train_months)
     results = {}
     for name, (pipe, space) in candidate_algorithms().items():
         search = RandomizedSearchCV(pipe, space, n_iter=C.SEARCH_ITERATIONS, scoring="roc_auc", cv=cv,
@@ -152,6 +181,9 @@ def train_slot(slot, run_date):
         "label_definition": C.LABEL_DEF,
         "data_window": {
             "development_months": [months[0], dev["snapshot_date"].max()],
+            "train_months": [train_months[0], train_months[-1]],
+            "test_months": [test_months[0], test_months[-1]],
+            "cv_validation_months": list(train_months[-C.CV_FOLDS:]),
             "oot_months": [oot_months[0], oot_months[-1]],
             "n_train": int(len(X_tr)), "n_test": int(len(X_te)), "n_dev": int(len(X_dev)), "n_oot": int(len(X_oot)),
             "default_rate_dev": float(y_dev.mean()), "default_rate_oot": float(y_oot.mean()),

@@ -77,10 +77,11 @@ TABLE_DATE_RANGES = {
 GO_LIVE_DATE = "2024-01-01"          # first model trained and deployed; scoring starts this month
 RETRAIN_EVERY_MONTHS = 2             # scheduled retrain cadence, counted from go-live
 OOT_MONTHS = 2                       # most recent labelled application months held out as out-of-time test
-TEST_SIZE = 0.2                      # random stratified test split of the remaining (older) months
+TEST_MONTH_SHARE = 0.2               # latest ~20% of the development months (at least 1) form the test set
 RANDOM_SEED = 88
 SEARCH_ITERATIONS = 20               # randomised hyper-parameter search per algorithm
-CV_FOLDS = 3
+CV_FOLDS = 3                         # walk-forward folds: validate on each of the last 3 training months,
+                                     # training only on the months before it (no future data in any fold)
 ALGORITHM_TIE_TOLERANCE = 0.005      # if AUCs are this close, prefer the simpler model (logistic regression)
 PROMOTION_TOLERANCE = 0.0            # challenger must be at least as good as the champion on the latest labelled months
 

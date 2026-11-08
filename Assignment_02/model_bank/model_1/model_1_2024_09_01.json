@@ -11,12 +11,25 @@
       "2023-01-01",
       "2024-01-01"
     ],
+    "train_months": [
+      "2023-01-01",
+      "2023-10-01"
+    ],
+    "test_months": [
+      "2023-11-01",
+      "2024-01-01"
+    ],
+    "cv_validation_months": [
+      "2023-08-01",
+      "2023-09-01",
+      "2023-10-01"
+    ],
     "oot_months": [
       "2024-02-01",
       "2024-03-01"
     ],
-    "n_train": 5154,
-    "n_test": 1289,
+    "n_train": 4978,
+    "n_test": 1465,
     "n_dev": 6443,
     "n_oot": 1029,
     "default_rate_dev": 0.28402917895390345,
@@ -104,61 +117,61 @@
   ],
   "n_features": 78,
   "hyperparameters": {
-    "subsample": 0.6,
-    "reg_lambda": 1,
-    "n_estimators": 300,
-    "min_child_weight": 1,
-    "max_depth": 3,
+    "subsample": 0.8,
+    "reg_lambda": 2,
+    "n_estimators": 200,
+    "min_child_weight": 5,
+    "max_depth": 5,
     "learning_rate": 0.05,
-    "gamma": 0.1,
+    "gamma": 0,
     "colsample_bytree": 0.9
   },
-  "decision_threshold": 0.214358389377594,
+  "decision_threshold": 0.1835484653711319,
   "metrics": {
-    "cv_auc": 0.8795009773868231,
-    "train_auc": 0.9527927717801767,
-    "test_auc": 0.8819009052211546,
-    "oot_auc": 0.9325997065492864,
-    "oot_gini": 0.8651994130985727,
-    "oot_ks": 0.7400560224089635,
+    "cv_auc": 0.9081011624863433,
+    "train_auc": 0.981082442256284,
+    "test_auc": 0.9141801496578678,
+    "oot_auc": 0.931336979236139,
+    "oot_gini": 0.862673958472278,
+    "oot_ks": 0.7440709617180206,
     "oot_default_rate": 0.30612244897959184,
-    "oot_mean_pd": 0.30205440521240234,
+    "oot_mean_pd": 0.3005513548851013,
     "oot_accuracy": 0.814382896015549,
-    "oot_precision": 0.6359649122807017,
-    "oot_recall": 0.9206349206349206,
-    "oot_f1": 0.7522697795071336,
-    "oot_approval_rate": 0.5568513119533528,
-    "oot_bad_rate_approved": 0.04363001745200698,
-    "oot_bad_rate_declined": 0.6359649122807017
+    "oot_precision": 0.6336206896551724,
+    "oot_recall": 0.9333333333333333,
+    "oot_f1": 0.754813863928113,
+    "oot_approval_rate": 0.5490767735665695,
+    "oot_bad_rate_approved": 0.03716814159292035,
+    "oot_bad_rate_declined": 0.6336206896551724
   },
   "algorithm_comparison": {
     "logistic_regression": {
-      "cv_auc": 0.8482012750455374,
-      "train_auc": 0.8614705969464066,
-      "test_auc": 0.8435015304098658
+      "cv_auc": 0.872889316320154,
+      "train_auc": 0.8465135809117192,
+      "test_auc": 0.8647632640176423
     },
     "xgboost": {
-      "cv_auc": 0.8795009773868231,
-      "train_auc": 0.9527927717801767,
-      "test_auc": 0.8819009052211546
+      "cv_auc": 0.9081011624863433,
+      "train_auc": 0.981082442256284,
+      "test_auc": 0.9141801496578678
     }
   },
   "top_features": {
-    "Outstanding_Debt": 0.10827099531888962,
-    "Interest_Rate": 0.04868677258491516,
-    "fe_5_avg": 0.03517117723822594,
-    "fe_10_avg": 0.029771428555250168,
-    "fe_9_avg": 0.027417415753006935,
-    "Delay_from_due_date": 0.025964243337512016,
-    "fe_4_avg": 0.023276375606656075,
-    "fe_3_avg": 0.02213461510837078,
-    "credit_mix_ordinal": 0.0216362364590168,
-    "Num_Bank_Accounts": 0.021298084408044815,
-    "spend_level_high": 0.020373765379190445,
-    "fe_8_avg": 0.019894873723387718,
-    "Num_Credit_Inquiries": 0.01897890865802765,
-    "Changed_Credit_Limit": 0.0189510565251112,
-    "Num_Credit_Card": 0.018040867522358894
+    "Outstanding_Debt": 0.11711744219064713,
+    "Interest_Rate": 0.04621456563472748,
+    "fe_5_avg": 0.03148514777421951,
+    "Delay_from_due_date": 0.02927607297897339,
+    "fe_10_avg": 0.02717727981507778,
+    "credit_mix_ordinal": 0.024249443784356117,
+    "fe_9_avg": 0.023975636810064316,
+    "fe_4_avg": 0.02081266976892948,
+    "fe_8_avg": 0.0199431199580431,
+    "Num_Credit_Card": 0.01885734498500824,
+    "fe_3_avg": 0.018716011196374893,
+    "Changed_Credit_Limit": 0.01788538135588169,
+    "Num_Bank_Accounts": 0.01736956462264061,
+    "spend_level_high": 0.01703798584640026,
+    "clickstream_months_observed": 0.016838492825627327
   },
   "environment": {
     "python": "3.12.9",
@@ -166,7 +179,7 @@
     "xgboost": "2.1.4",
     "pandas": "2.1.4"
   },
-  "created_at": "2026-11-07T15:17:10",
+  "created_at": "2026-11-08T02:20:31",
   "retrain_reason": "scheduled retrain (every 2 months from go-live)",
   "data_end": "2024-03-01"
 }

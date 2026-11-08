@@ -11,12 +11,25 @@
       "2023-01-01",
       "2023-11-01"
     ],
+    "train_months": [
+      "2023-01-01",
+      "2023-09-01"
+    ],
+    "test_months": [
+      "2023-10-01",
+      "2023-11-01"
+    ],
+    "cv_validation_months": [
+      "2023-07-01",
+      "2023-08-01",
+      "2023-09-01"
+    ],
     "oot_months": [
       "2023-12-01",
       "2024-01-01"
     ],
-    "n_train": 4375,
-    "n_test": 1094,
+    "n_train": 4491,
+    "n_test": 978,
     "n_dev": 5469,
     "n_oot": 974,
     "default_rate_dev": 0.28067288352532455,
@@ -82,61 +95,61 @@
   ],
   "n_features": 56,
   "hyperparameters": {
-    "subsample": 0.6,
-    "reg_lambda": 1,
+    "subsample": 1.0,
+    "reg_lambda": 2,
     "n_estimators": 100,
-    "min_child_weight": 1,
+    "min_child_weight": 10,
     "max_depth": 5,
     "learning_rate": 0.05,
-    "gamma": 0.5,
+    "gamma": 0.1,
     "colsample_bytree": 0.7
   },
-  "decision_threshold": 0.33713799715042114,
+  "decision_threshold": 0.24360810220241547,
   "metrics": {
-    "cv_auc": 0.807594143171603,
-    "train_auc": 0.9236359740779958,
-    "test_auc": 0.8233095621437944,
-    "oot_auc": 0.8076283667407205,
-    "oot_gini": 0.6152567334814409,
-    "oot_ks": 0.5335213798956592,
+    "cv_auc": 0.8093881677338924,
+    "train_auc": 0.9012396665889804,
+    "test_auc": 0.8194292621400042,
+    "oot_auc": 0.8109882429295325,
+    "oot_gini": 0.6219764858590651,
+    "oot_ks": 0.5509148548463593,
     "oot_default_rate": 0.3028747433264887,
-    "oot_mean_pd": 0.2836655378341675,
-    "oot_accuracy": 0.7885010266940452,
-    "oot_precision": 0.6394984326018809,
-    "oot_recall": 0.6915254237288135,
-    "oot_f1": 0.6644951140065146,
-    "oot_approval_rate": 0.6724845995893224,
-    "oot_bad_rate_approved": 0.13893129770992366,
-    "oot_bad_rate_declined": 0.6394984326018809
+    "oot_mean_pd": 0.2872248888015747,
+    "oot_accuracy": 0.771047227926078,
+    "oot_precision": 0.5967741935483871,
+    "oot_recall": 0.752542372881356,
+    "oot_f1": 0.6656671664167917,
+    "oot_approval_rate": 0.6180698151950719,
+    "oot_bad_rate_approved": 0.1212624584717608,
+    "oot_bad_rate_declined": 0.5967741935483871
   },
   "algorithm_comparison": {
     "logistic_regression": {
-      "cv_auc": 0.7688519449588109,
-      "train_auc": 0.7826915453319381,
-      "test_auc": 0.7836794159157978
+      "cv_auc": 0.7579931967528868,
+      "train_auc": 0.7833437948613496,
+      "test_auc": 0.7791202438511667
     },
     "xgboost": {
-      "cv_auc": 0.807594143171603,
-      "train_auc": 0.9236359740779958,
-      "test_auc": 0.8233095621437944
+      "cv_auc": 0.8093881677338924,
+      "train_auc": 0.9012396665889804,
+      "test_auc": 0.8194292621400042
     }
   },
   "top_features": {
-    "Outstanding_Debt": 0.10903079062700272,
-    "Interest_Rate": 0.04405665770173073,
-    "credit_mix_ordinal": 0.036635514348745346,
-    "Delay_from_due_date": 0.030331816524267197,
-    "Num_Credit_Card": 0.02671739086508751,
-    "Num_Credit_Inquiries": 0.025208814069628716,
-    "Credit_History_Age_months": 0.02299272082746029,
-    "Changed_Credit_Limit": 0.02215510606765747,
-    "debt_to_annual_income": 0.022110389545559883,
-    "occupation_entrepreneur": 0.021638892590999603,
-    "Num_of_Delayed_Payment": 0.021307727321982384,
-    "spend_level_high": 0.02122993767261505,
-    "occupation_architect": 0.02012079581618309,
-    "has_personal_loan": 0.020100673660635948,
-    "Num_Bank_Accounts": 0.019576963037252426
+    "Outstanding_Debt": 0.2200285643339157,
+    "Interest_Rate": 0.07339353114366531,
+    "credit_mix_ordinal": 0.05613299831748009,
+    "Num_Credit_Inquiries": 0.045193418860435486,
+    "Num_of_Delayed_Payment": 0.03627760708332062,
+    "debt_to_annual_income": 0.03406885638833046,
+    "Delay_from_due_date": 0.03375224024057388,
+    "Changed_Credit_Limit": 0.033484332263469696,
+    "Num_Bank_Accounts": 0.030206911265850067,
+    "Num_Credit_Card": 0.027057427912950516,
+    "Credit_History_Age_months": 0.02588289976119995,
+    "Num_of_Loan": 0.02117021195590496,
+    "spend_level_high": 0.019650837406516075,
+    "has_personal_loan": 0.018395932391285896,
+    "Monthly_Balance": 0.017565013840794563
   },
   "environment": {
     "python": "3.12.9",
@@ -144,7 +157,7 @@
     "xgboost": "2.1.4",
     "pandas": "2.1.4"
   },
-  "created_at": "2026-11-07T15:14:38",
+  "created_at": "2026-11-08T02:17:51",
   "retrain_reason": "scheduled retrain (every 2 months from go-live)",
   "data_end": "2024-01-01"
 }

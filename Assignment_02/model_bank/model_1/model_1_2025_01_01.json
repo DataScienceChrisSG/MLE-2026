@@ -11,12 +11,25 @@
       "2023-01-01",
       "2024-04-01"
     ],
+    "train_months": [
+      "2023-01-01",
+      "2024-01-01"
+    ],
+    "test_months": [
+      "2024-02-01",
+      "2024-04-01"
+    ],
+    "cv_validation_months": [
+      "2023-11-01",
+      "2023-12-01",
+      "2024-01-01"
+    ],
     "oot_months": [
       "2024-05-01",
       "2024-06-01"
     ],
-    "n_train": 6388,
-    "n_test": 1597,
+    "n_train": 6443,
+    "n_test": 1542,
     "n_dev": 7985,
     "n_oot": 989,
     "default_rate_dev": 0.2864120225422668,
@@ -105,60 +118,60 @@
   "n_features": 78,
   "hyperparameters": {
     "subsample": 0.8,
-    "reg_lambda": 2,
-    "n_estimators": 200,
-    "min_child_weight": 5,
+    "reg_lambda": 5,
+    "n_estimators": 400,
+    "min_child_weight": 10,
     "max_depth": 5,
     "learning_rate": 0.05,
-    "gamma": 0,
-    "colsample_bytree": 0.9
+    "gamma": 0.5,
+    "colsample_bytree": 0.7
   },
-  "decision_threshold": 0.24245932698249817,
+  "decision_threshold": 0.26923584938049316,
   "metrics": {
-    "cv_auc": 0.8885359858199173,
-    "train_auc": 0.9789913608931153,
-    "test_auc": 0.9153767898959653,
-    "oot_auc": 0.951296580868229,
-    "oot_gini": 0.902593161736458,
-    "oot_ks": 0.7670092201306185,
+    "cv_auc": 0.9210911824031017,
+    "train_auc": 0.9886302549577756,
+    "test_auc": 0.9307323861287298,
+    "oot_auc": 0.9523962735305417,
+    "oot_gini": 0.9047925470610834,
+    "oot_ks": 0.7805176719170188,
     "oot_default_rate": 0.30738119312436807,
-    "oot_mean_pd": 0.28468799591064453,
-    "oot_accuracy": 0.8705763397371082,
-    "oot_precision": 0.7352941176470589,
-    "oot_recall": 0.9046052631578947,
-    "oot_f1": 0.8112094395280236,
-    "oot_approval_rate": 0.621840242669363,
-    "oot_bad_rate_approved": 0.04715447154471545,
-    "oot_bad_rate_declined": 0.7352941176470589
+    "oot_mean_pd": 0.28175804018974304,
+    "oot_accuracy": 0.8897876643073812,
+    "oot_precision": 0.7842565597667639,
+    "oot_recall": 0.8848684210526315,
+    "oot_f1": 0.8315301391035548,
+    "oot_approval_rate": 0.6531850353892821,
+    "oot_bad_rate_approved": 0.05417956656346749,
+    "oot_bad_rate_declined": 0.7842565597667639
   },
   "algorithm_comparison": {
     "logistic_regression": {
-      "cv_auc": 0.8565284391192532,
-      "train_auc": 0.8657181152696153,
-      "test_auc": 0.8768781911013858
+      "cv_auc": 0.8824883438949516,
+      "train_auc": 0.8599828946230598,
+      "test_auc": 0.8879347376700379
     },
     "xgboost": {
-      "cv_auc": 0.8885359858199173,
-      "train_auc": 0.9789913608931153,
-      "test_auc": 0.9153767898959653
+      "cv_auc": 0.9210911824031017,
+      "train_auc": 0.9886302549577756,
+      "test_auc": 0.9307323861287298
     }
   },
   "top_features": {
-    "Outstanding_Debt": 0.13148310780525208,
-    "Interest_Rate": 0.053248967975378036,
-    "fe_5_avg": 0.03665010631084442,
-    "fe_10_avg": 0.032029468566179276,
-    "fe_9_avg": 0.02643316239118576,
-    "Delay_from_due_date": 0.026215888559818268,
-    "fe_4_avg": 0.022692281752824783,
-    "fe_3_avg": 0.021747441962361336,
-    "fe_8_avg": 0.02094225585460663,
-    "credit_mix_ordinal": 0.020072707906365395,
-    "Num_Credit_Card": 0.019924242049455643,
-    "clickstream_months_observed": 0.01833983324468136,
-    "spend_level_high": 0.017817040905356407,
-    "Num_Bank_Accounts": 0.017544133588671684,
-    "Changed_Credit_Limit": 0.0171007439494133
+    "Outstanding_Debt": 0.08350721001625061,
+    "Interest_Rate": 0.05668497830629349,
+    "fe_5_avg": 0.0411040335893631,
+    "fe_10_avg": 0.03236573562026024,
+    "credit_mix_ordinal": 0.03213523328304291,
+    "debt_to_annual_income": 0.025719579309225082,
+    "fe_9_avg": 0.025492480024695396,
+    "Num_Credit_Inquiries": 0.024753287434577942,
+    "fe_4_avg": 0.024200212210416794,
+    "Num_Credit_Card": 0.024183986708521843,
+    "Delay_from_due_date": 0.023121070116758347,
+    "fe_3_avg": 0.021403640508651733,
+    "fe_8_avg": 0.019640037789940834,
+    "spend_level_high": 0.017283746972680092,
+    "clickstream_months_observed": 0.01671256497502327
   },
   "environment": {
     "python": "3.12.9",
@@ -166,7 +179,7 @@
     "xgboost": "2.1.4",
     "pandas": "2.1.4"
   },
-  "created_at": "2026-11-07T15:22:32",
+  "created_at": "2026-11-08T02:26:11",
   "retrain_reason": "scheduled retrain (every 2 months from go-live)",
   "data_end": "2024-06-01"
 }

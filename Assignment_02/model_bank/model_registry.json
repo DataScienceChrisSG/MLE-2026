@@ -4,19 +4,19 @@
       {
         "version": "model_1_2024_01_01",
         "slot": "model_1",
-        "algorithm": "logistic_regression",
+        "algorithm": "xgboost",
         "trained_on": "2024-01-01",
         "data_end": "2023-07-01",
         "artefact": "model_bank/model_1/model_1_2024_01_01.pkl",
         "card": "model_bank/model_1/model_1_2024_01_01.json",
         "retrain_reason": "first deployment (go-live)",
-        "oot_auc": 0.8340771882790802,
-        "decision_threshold": 0.2567856011020317,
+        "oot_auc": 0.8615972825176317,
+        "decision_threshold": 0.32431966066360474,
         "promotion": {
-          "challenger_auc": 0.8340771882790802,
+          "challenger_auc": 0.8615972825176317,
           "champion_auc": null,
           "champion_version": null,
-          "detail": "first deployment; OOT AUC 0.834"
+          "detail": "first deployment; OOT AUC 0.862"
         },
         "status": "retired",
         "promoted_at": "2024-01-01",
@@ -32,12 +32,12 @@
         "card": "model_bank/model_1/model_1_2024_03_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
         "oot_auc": 0.9019729082935432,
-        "decision_threshold": 0.22360867261886597,
+        "decision_threshold": 0.21754489839076996,
         "promotion": {
           "challenger_auc": 0.9019729082935432,
-          "champion_auc": 0.8402150389886984,
+          "champion_auc": 0.884115969908282,
           "champion_version": "model_1_2024_01_01",
-          "detail": "challenger model_1_2024_03_01 AUC 0.902 vs champion model_1_2024_01_01 AUC 0.840 on 2023-08-01..2023-09-01 applications (n=935)"
+          "detail": "challenger model_1_2024_03_01 AUC 0.902 vs champion model_1_2024_01_01 AUC 0.884 on 2023-08-01..2023-09-01 applications (n=935)"
         },
         "status": "retired",
         "promoted_at": "2024-03-01",
@@ -52,13 +52,13 @@
         "artefact": "model_bank/model_1/model_1_2024_05_01.pkl",
         "card": "model_bank/model_1/model_1_2024_05_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.9116354845490855,
-        "decision_threshold": 0.30138731002807617,
+        "oot_auc": 0.9178368719781375,
+        "decision_threshold": 0.27434009313583374,
         "promotion": {
-          "challenger_auc": 0.9116354845490855,
+          "challenger_auc": 0.9178368719781375,
           "champion_auc": 0.9069476560857683,
           "champion_version": "model_1_2024_03_01",
-          "detail": "challenger model_1_2024_05_01 AUC 0.912 vs champion model_1_2024_03_01 AUC 0.907 on 2023-10-01..2023-11-01 applications (n=978)"
+          "detail": "challenger model_1_2024_05_01 AUC 0.918 vs champion model_1_2024_03_01 AUC 0.907 on 2023-10-01..2023-11-01 applications (n=978)"
         },
         "status": "retired",
         "promoted_at": "2024-05-01",
@@ -73,13 +73,13 @@
         "artefact": "model_bank/model_1/model_1_2024_07_01.pkl",
         "card": "model_bank/model_1/model_1_2024_07_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.9176705524075783,
-        "decision_threshold": 0.2072969228029251,
+        "oot_auc": 0.918249669254387,
+        "decision_threshold": 0.2157478928565979,
         "promotion": {
-          "challenger_auc": 0.9176705524075783,
-          "champion_auc": 0.9044207583435262,
+          "challenger_auc": 0.918249669254387,
+          "champion_auc": 0.9078405431716632,
           "champion_version": "model_1_2024_05_01",
-          "detail": "challenger model_1_2024_07_01 AUC 0.918 vs champion model_1_2024_05_01 AUC 0.904 on 2023-12-01..2024-01-01 applications (n=974)"
+          "detail": "challenger model_1_2024_07_01 AUC 0.918 vs champion model_1_2024_05_01 AUC 0.908 on 2023-12-01..2024-01-01 applications (n=974)"
         },
         "status": "retired",
         "promoted_at": "2024-07-01",
@@ -94,13 +94,13 @@
         "artefact": "model_bank/model_1/model_1_2024_09_01.pkl",
         "card": "model_bank/model_1/model_1_2024_09_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.9325997065492864,
-        "decision_threshold": 0.214358389377594,
+        "oot_auc": 0.931336979236139,
+        "decision_threshold": 0.1835484653711319,
         "promotion": {
-          "challenger_auc": 0.9325997065492864,
-          "champion_auc": 0.924761015517318,
+          "challenger_auc": 0.931336979236139,
+          "champion_auc": 0.9213196389666978,
           "champion_version": "model_1_2024_07_01",
-          "detail": "challenger model_1_2024_09_01 AUC 0.933 vs champion model_1_2024_07_01 AUC 0.925 on 2024-02-01..2024-03-01 applications (n=1029)"
+          "detail": "challenger model_1_2024_09_01 AUC 0.931 vs champion model_1_2024_07_01 AUC 0.921 on 2024-02-01..2024-03-01 applications (n=1029)"
         },
         "status": "retired",
         "promoted_at": "2024-09-01",
@@ -115,17 +115,17 @@
         "artefact": "model_bank/model_1/model_1_2024_11_01.pkl",
         "card": "model_bank/model_1/model_1_2024_11_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.9369008545278408,
-        "decision_threshold": 0.27799996733665466,
+        "oot_auc": 0.9364670840502596,
+        "decision_threshold": 0.29845336079597473,
         "promotion": {
-          "challenger_auc": 0.9369008545278408,
-          "champion_auc": 0.9298062973834001,
+          "challenger_auc": 0.9364670840502596,
+          "champion_auc": 0.929685805584072,
           "champion_version": "model_1_2024_09_01",
-          "detail": "challenger model_1_2024_11_01 AUC 0.937 vs champion model_1_2024_09_01 AUC 0.930 on 2024-04-01..2024-05-01 applications (n=1004)"
+          "detail": "challenger model_1_2024_11_01 AUC 0.936 vs champion model_1_2024_09_01 AUC 0.930 on 2024-04-01..2024-05-01 applications (n=1004)"
         },
-        "status": "champion",
+        "status": "retired",
         "promoted_at": "2024-11-01",
-        "retired_at": null
+        "retired_at": "2025-01-01"
       },
       {
         "version": "model_1_2025_01_01",
@@ -136,16 +136,16 @@
         "artefact": "model_bank/model_1/model_1_2025_01_01.pkl",
         "card": "model_bank/model_1/model_1_2025_01_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.951296580868229,
-        "decision_threshold": 0.24245932698249817,
+        "oot_auc": 0.9523962735305417,
+        "decision_threshold": 0.26923584938049316,
         "promotion": {
-          "challenger_auc": 0.951296580868229,
-          "champion_auc": 0.9543507491356127,
+          "challenger_auc": 0.9523962735305417,
+          "champion_auc": 0.9484729158663081,
           "champion_version": "model_1_2024_11_01",
-          "detail": "challenger model_1_2025_01_01 AUC 0.951 vs champion model_1_2024_11_01 AUC 0.954 on 2024-05-01..2024-06-01 applications (n=989)"
+          "detail": "challenger model_1_2025_01_01 AUC 0.952 vs champion model_1_2024_11_01 AUC 0.948 on 2024-05-01..2024-06-01 applications (n=989)"
         },
-        "status": "rejected",
-        "promoted_at": null,
+        "status": "champion",
+        "promoted_at": "2025-01-01",
         "retired_at": null
       }
     ],
@@ -160,7 +160,7 @@
         "card": "model_bank/model_2/model_2_2024_01_01.json",
         "retrain_reason": "first deployment (go-live)",
         "oot_auc": 0.7879531041346148,
-        "decision_threshold": 0.2855124771595001,
+        "decision_threshold": 0.315448135137558,
         "promotion": {
           "challenger_auc": 0.7879531041346148,
           "champion_auc": null,
@@ -180,17 +180,17 @@
         "artefact": "model_bank/model_2/model_2_2024_03_01.pkl",
         "card": "model_bank/model_2/model_2_2024_03_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.8291367524303529,
-        "decision_threshold": 0.26353779435157776,
+        "oot_auc": 0.8291997297699608,
+        "decision_threshold": 0.34224140644073486,
         "promotion": {
-          "challenger_auc": 0.8291367524303529,
+          "challenger_auc": 0.8291997297699608,
           "champion_auc": 0.8119782899934732,
           "champion_version": "model_2_2024_01_01",
           "detail": "challenger model_2_2024_03_01 AUC 0.829 vs champion model_2_2024_01_01 AUC 0.812 on 2023-08-01..2023-09-01 applications (n=935)"
         },
         "status": "retired",
         "promoted_at": "2024-03-01",
-        "retired_at": "2024-05-01"
+        "retired_at": "2024-07-01"
       },
       {
         "version": "model_2_2024_05_01",
@@ -201,17 +201,17 @@
         "artefact": "model_bank/model_2/model_2_2024_05_01.pkl",
         "card": "model_bank/model_2/model_2_2024_05_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.8194292621400042,
-        "decision_threshold": 0.267372727394104,
+        "oot_auc": 0.8181364305234391,
+        "decision_threshold": 0.30136245489120483,
         "promotion": {
-          "challenger_auc": 0.8194292621400042,
-          "champion_auc": 0.8141055286945554,
+          "challenger_auc": 0.8181364305234391,
+          "champion_auc": 0.8198969939037208,
           "champion_version": "model_2_2024_03_01",
-          "detail": "challenger model_2_2024_05_01 AUC 0.819 vs champion model_2_2024_03_01 AUC 0.814 on 2023-10-01..2023-11-01 applications (n=978)"
+          "detail": "challenger model_2_2024_05_01 AUC 0.818 vs champion model_2_2024_03_01 AUC 0.820 on 2023-10-01..2023-11-01 applications (n=978)"
         },
-        "status": "retired",
-        "promoted_at": "2024-05-01",
-        "retired_at": "2024-09-01"
+        "status": "rejected",
+        "promoted_at": null,
+        "retired_at": null
       },
       {
         "version": "model_2_2024_07_01",
@@ -222,17 +222,17 @@
         "artefact": "model_bank/model_2/model_2_2024_07_01.pkl",
         "card": "model_bank/model_2/model_2_2024_07_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.8076283667407205,
-        "decision_threshold": 0.33713799715042114,
+        "oot_auc": 0.8109882429295325,
+        "decision_threshold": 0.24360810220241547,
         "promotion": {
-          "challenger_auc": 0.8076283667407205,
-          "champion_auc": 0.8092658695489379,
-          "champion_version": "model_2_2024_05_01",
-          "detail": "challenger model_2_2024_07_01 AUC 0.808 vs champion model_2_2024_05_01 AUC 0.809 on 2023-12-01..2024-01-01 applications (n=974)"
+          "challenger_auc": 0.8109882429295325,
+          "champion_auc": 0.8081575597214249,
+          "champion_version": "model_2_2024_03_01",
+          "detail": "challenger model_2_2024_07_01 AUC 0.811 vs champion model_2_2024_03_01 AUC 0.808 on 2023-12-01..2024-01-01 applications (n=974)"
         },
-        "status": "rejected",
-        "promoted_at": null,
-        "retired_at": null
+        "status": "retired",
+        "promoted_at": "2024-07-01",
+        "retired_at": "2024-09-01"
       },
       {
         "version": "model_2_2024_09_01",
@@ -244,12 +244,12 @@
         "card": "model_bank/model_2/model_2_2024_09_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
         "oot_auc": 0.8138321995464853,
-        "decision_threshold": 0.28296250104904175,
+        "decision_threshold": 0.29084596037864685,
         "promotion": {
           "challenger_auc": 0.8138321995464853,
-          "champion_auc": 0.8066293183940243,
-          "champion_version": "model_2_2024_05_01",
-          "detail": "challenger model_2_2024_09_01 AUC 0.814 vs champion model_2_2024_05_01 AUC 0.807 on 2024-02-01..2024-03-01 applications (n=1029)"
+          "champion_auc": 0.8065670712729536,
+          "champion_version": "model_2_2024_07_01",
+          "detail": "challenger model_2_2024_09_01 AUC 0.814 vs champion model_2_2024_07_01 AUC 0.807 on 2024-02-01..2024-03-01 applications (n=1029)"
         },
         "status": "retired",
         "promoted_at": "2024-09-01",
@@ -264,17 +264,17 @@
         "artefact": "model_bank/model_2/model_2_2024_11_01.pkl",
         "card": "model_bank/model_2/model_2_2024_11_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.7980943017018262,
-        "decision_threshold": 0.2532021701335907,
+        "oot_auc": 0.7985762688991387,
+        "decision_threshold": 0.2988725006580353,
         "promotion": {
-          "challenger_auc": 0.7980943017018262,
+          "challenger_auc": 0.7985762688991387,
           "champion_auc": 0.7974050886096692,
           "champion_version": "model_2_2024_09_01",
-          "detail": "challenger model_2_2024_11_01 AUC 0.798 vs champion model_2_2024_09_01 AUC 0.797 on 2024-04-01..2024-05-01 applications (n=1004)"
+          "detail": "challenger model_2_2024_11_01 AUC 0.799 vs champion model_2_2024_09_01 AUC 0.797 on 2024-04-01..2024-05-01 applications (n=1004)"
         },
-        "status": "champion",
+        "status": "retired",
         "promoted_at": "2024-11-01",
-        "retired_at": null
+        "retired_at": "2025-01-01"
       },
       {
         "version": "model_2_2025_01_01",
@@ -285,16 +285,16 @@
         "artefact": "model_bank/model_2/model_2_2025_01_01.pkl",
         "card": "model_bank/model_2/model_2_2025_01_01.json",
         "retrain_reason": "scheduled retrain (every 2 months from go-live)",
-        "oot_auc": 0.8249220313736443,
-        "decision_threshold": 0.29220062494277954,
+        "oot_auc": 0.822408415956803,
+        "decision_threshold": 0.28775477409362793,
         "promotion": {
-          "challenger_auc": 0.8249220313736443,
-          "champion_auc": 0.8264674393706652,
+          "challenger_auc": 0.822408415956803,
+          "champion_auc": 0.8209840338872597,
           "champion_version": "model_2_2024_11_01",
-          "detail": "challenger model_2_2025_01_01 AUC 0.825 vs champion model_2_2024_11_01 AUC 0.826 on 2024-06-01..2024-07-01 applications (n=1003)"
+          "detail": "challenger model_2_2025_01_01 AUC 0.822 vs champion model_2_2024_11_01 AUC 0.821 on 2024-06-01..2024-07-01 applications (n=1003)"
         },
-        "status": "rejected",
-        "promoted_at": null,
+        "status": "champion",
+        "promoted_at": "2025-01-01",
         "retired_at": null
       }
     ]
@@ -305,7 +305,7 @@
       "slot": "model_1",
       "event": "promoted",
       "version": "model_1_2024_01_01",
-      "detail": "first deployment; OOT AUC 0.834"
+      "detail": "first deployment; OOT AUC 0.862"
     },
     {
       "date": "2024-01-01",
@@ -319,7 +319,7 @@
       "slot": "model_1",
       "event": "promoted",
       "version": "model_1_2024_03_01",
-      "detail": "challenger model_1_2024_03_01 AUC 0.902 vs champion model_1_2024_01_01 AUC 0.840 on 2023-08-01..2023-09-01 applications (n=935)"
+      "detail": "challenger model_1_2024_03_01 AUC 0.902 vs champion model_1_2024_01_01 AUC 0.884 on 2023-08-01..2023-09-01 applications (n=935)"
     },
     {
       "date": "2024-03-01",
@@ -333,70 +333,70 @@
       "slot": "model_1",
       "event": "promoted",
       "version": "model_1_2024_05_01",
-      "detail": "challenger model_1_2024_05_01 AUC 0.912 vs champion model_1_2024_03_01 AUC 0.907 on 2023-10-01..2023-11-01 applications (n=978)"
+      "detail": "challenger model_1_2024_05_01 AUC 0.918 vs champion model_1_2024_03_01 AUC 0.907 on 2023-10-01..2023-11-01 applications (n=978)"
     },
     {
       "date": "2024-05-01",
       "slot": "model_2",
-      "event": "promoted",
+      "event": "rejected",
       "version": "model_2_2024_05_01",
-      "detail": "challenger model_2_2024_05_01 AUC 0.819 vs champion model_2_2024_03_01 AUC 0.814 on 2023-10-01..2023-11-01 applications (n=978)"
+      "detail": "challenger model_2_2024_05_01 AUC 0.818 vs champion model_2_2024_03_01 AUC 0.820 on 2023-10-01..2023-11-01 applications (n=978)"
     },
     {
       "date": "2024-07-01",
       "slot": "model_1",
       "event": "promoted",
       "version": "model_1_2024_07_01",
-      "detail": "challenger model_1_2024_07_01 AUC 0.918 vs champion model_1_2024_05_01 AUC 0.904 on 2023-12-01..2024-01-01 applications (n=974)"
+      "detail": "challenger model_1_2024_07_01 AUC 0.918 vs champion model_1_2024_05_01 AUC 0.908 on 2023-12-01..2024-01-01 applications (n=974)"
     },
     {
       "date": "2024-07-01",
       "slot": "model_2",
-      "event": "rejected",
+      "event": "promoted",
       "version": "model_2_2024_07_01",
-      "detail": "challenger model_2_2024_07_01 AUC 0.808 vs champion model_2_2024_05_01 AUC 0.809 on 2023-12-01..2024-01-01 applications (n=974)"
+      "detail": "challenger model_2_2024_07_01 AUC 0.811 vs champion model_2_2024_03_01 AUC 0.808 on 2023-12-01..2024-01-01 applications (n=974)"
     },
     {
       "date": "2024-09-01",
       "slot": "model_1",
       "event": "promoted",
       "version": "model_1_2024_09_01",
-      "detail": "challenger model_1_2024_09_01 AUC 0.933 vs champion model_1_2024_07_01 AUC 0.925 on 2024-02-01..2024-03-01 applications (n=1029)"
+      "detail": "challenger model_1_2024_09_01 AUC 0.931 vs champion model_1_2024_07_01 AUC 0.921 on 2024-02-01..2024-03-01 applications (n=1029)"
     },
     {
       "date": "2024-09-01",
       "slot": "model_2",
       "event": "promoted",
       "version": "model_2_2024_09_01",
-      "detail": "challenger model_2_2024_09_01 AUC 0.814 vs champion model_2_2024_05_01 AUC 0.807 on 2024-02-01..2024-03-01 applications (n=1029)"
+      "detail": "challenger model_2_2024_09_01 AUC 0.814 vs champion model_2_2024_07_01 AUC 0.807 on 2024-02-01..2024-03-01 applications (n=1029)"
     },
     {
       "date": "2024-11-01",
       "slot": "model_1",
       "event": "promoted",
       "version": "model_1_2024_11_01",
-      "detail": "challenger model_1_2024_11_01 AUC 0.937 vs champion model_1_2024_09_01 AUC 0.930 on 2024-04-01..2024-05-01 applications (n=1004)"
+      "detail": "challenger model_1_2024_11_01 AUC 0.936 vs champion model_1_2024_09_01 AUC 0.930 on 2024-04-01..2024-05-01 applications (n=1004)"
     },
     {
       "date": "2024-11-01",
       "slot": "model_2",
       "event": "promoted",
       "version": "model_2_2024_11_01",
-      "detail": "challenger model_2_2024_11_01 AUC 0.798 vs champion model_2_2024_09_01 AUC 0.797 on 2024-04-01..2024-05-01 applications (n=1004)"
+      "detail": "challenger model_2_2024_11_01 AUC 0.799 vs champion model_2_2024_09_01 AUC 0.797 on 2024-04-01..2024-05-01 applications (n=1004)"
     },
     {
       "date": "2025-01-01",
       "slot": "model_1",
-      "event": "rejected",
+      "event": "promoted",
       "version": "model_1_2025_01_01",
-      "detail": "challenger model_1_2025_01_01 AUC 0.951 vs champion model_1_2024_11_01 AUC 0.954 on 2024-05-01..2024-06-01 applications (n=989)"
+      "detail": "challenger model_1_2025_01_01 AUC 0.952 vs champion model_1_2024_11_01 AUC 0.948 on 2024-05-01..2024-06-01 applications (n=989)"
     },
     {
       "date": "2025-01-01",
       "slot": "model_2",
-      "event": "rejected",
+      "event": "promoted",
       "version": "model_2_2025_01_01",
-      "detail": "challenger model_2_2025_01_01 AUC 0.825 vs champion model_2_2024_11_01 AUC 0.826 on 2024-06-01..2024-07-01 applications (n=1003)"
+      "detail": "challenger model_2_2025_01_01 AUC 0.822 vs champion model_2_2024_11_01 AUC 0.821 on 2024-06-01..2024-07-01 applications (n=1003)"
     }
   ],
   "policy": {

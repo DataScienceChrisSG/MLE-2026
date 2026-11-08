@@ -11,12 +11,25 @@
       "2023-01-01",
       "2023-07-01"
     ],
+    "train_months": [
+      "2023-01-01",
+      "2023-06-01"
+    ],
+    "test_months": [
+      "2023-07-01",
+      "2023-07-01"
+    ],
+    "cv_validation_months": [
+      "2023-04-01",
+      "2023-05-01",
+      "2023-06-01"
+    ],
     "oot_months": [
       "2023-08-01",
       "2023-09-01"
     ],
-    "n_train": 2844,
-    "n_test": 712,
+    "n_train": 3085,
+    "n_test": 471,
     "n_dev": 3556,
     "n_oot": 935,
     "default_rate_dev": 0.28374578177727783,
@@ -113,34 +126,34 @@
     "gamma": 0.1,
     "colsample_bytree": 0.9
   },
-  "decision_threshold": 0.22360867261886597,
+  "decision_threshold": 0.21754489839076996,
   "metrics": {
-    "cv_auc": 0.8367286975342777,
-    "train_auc": 0.9427606017304404,
-    "test_auc": 0.8320326150262085,
+    "cv_auc": 0.8590752663776576,
+    "train_auc": 0.935419981471711,
+    "test_auc": 0.8574018126888219,
     "oot_auc": 0.9019729082935432,
     "oot_gini": 0.8039458165870863,
     "oot_ks": 0.674727766136512,
     "oot_default_rate": 0.27593582887700535,
     "oot_mean_pd": 0.26891446113586426,
-    "oot_accuracy": 0.8021390374331551,
-    "oot_precision": 0.5983827493261455,
-    "oot_recall": 0.8604651162790697,
-    "oot_f1": 0.7058823529411764,
-    "oot_approval_rate": 0.6032085561497326,
-    "oot_bad_rate_approved": 0.06382978723404255,
-    "oot_bad_rate_declined": 0.5983827493261455
+    "oot_accuracy": 0.7989304812834225,
+    "oot_precision": 0.5930851063829787,
+    "oot_recall": 0.8643410852713178,
+    "oot_f1": 0.7034700315457413,
+    "oot_approval_rate": 0.597860962566845,
+    "oot_bad_rate_approved": 0.0626118067978533,
+    "oot_bad_rate_declined": 0.5930851063829787
   },
   "algorithm_comparison": {
     "logistic_regression": {
-      "cv_auc": 0.8212200681445306,
-      "train_auc": 0.8443990634233228,
-      "test_auc": 0.8134051640458164
+      "cv_auc": 0.8390023180867959,
+      "train_auc": 0.838703663699094,
+      "test_auc": 0.832973672852827
     },
     "xgboost": {
-      "cv_auc": 0.8367286975342777,
-      "train_auc": 0.9427606017304404,
-      "test_auc": 0.8320326150262085
+      "cv_auc": 0.8590752663776576,
+      "train_auc": 0.935419981471711,
+      "test_auc": 0.8574018126888219
     }
   },
   "top_features": {
@@ -166,7 +179,7 @@
     "xgboost": "2.1.4",
     "pandas": "2.1.4"
   },
-  "created_at": "2026-11-07T15:09:09",
+  "created_at": "2026-11-08T02:11:32",
   "retrain_reason": "scheduled retrain (every 2 months from go-live)",
   "data_end": "2023-09-01"
 }

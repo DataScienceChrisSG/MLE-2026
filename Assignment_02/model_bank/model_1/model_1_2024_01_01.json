@@ -3,7 +3,7 @@
   "slot": "model_1",
   "slot_label": "Full model (with clickstream)",
   "population": "applicants with clickstream history",
-  "algorithm": "logistic_regression",
+  "algorithm": "xgboost",
   "trained_on": "2024-01-01",
   "label_definition": "30dpd_6mob",
   "data_window": {
@@ -11,12 +11,25 @@
       "2023-01-01",
       "2023-05-01"
     ],
+    "train_months": [
+      "2023-01-01",
+      "2023-04-01"
+    ],
+    "test_months": [
+      "2023-05-01",
+      "2023-05-01"
+    ],
+    "cv_validation_months": [
+      "2023-02-01",
+      "2023-03-01",
+      "2023-04-01"
+    ],
     "oot_months": [
       "2023-06-01",
       "2023-07-01"
     ],
-    "n_train": 2054,
-    "n_test": 514,
+    "n_train": 2047,
+    "n_test": 521,
     "n_dev": 2568,
     "n_oot": 988,
     "default_rate_dev": 0.2850467289719626,
@@ -104,55 +117,61 @@
   ],
   "n_features": 78,
   "hyperparameters": {
-    "C": 0.015343297406005154,
-    "penalty": "l2"
+    "subsample": 0.8,
+    "reg_lambda": 2,
+    "n_estimators": 200,
+    "min_child_weight": 5,
+    "max_depth": 5,
+    "learning_rate": 0.05,
+    "gamma": 0,
+    "colsample_bytree": 0.9
   },
-  "decision_threshold": 0.2567856011020317,
+  "decision_threshold": 0.32431966066360474,
   "metrics": {
-    "cv_auc": 0.7995936059915025,
-    "train_auc": 0.8308983959086069,
-    "test_auc": 0.8303397653339265,
-    "oot_auc": 0.8340771882790802,
-    "oot_gini": 0.6681543765581603,
-    "oot_ks": 0.5399320629407912,
+    "cv_auc": 0.7990436657370522,
+    "train_auc": 0.9964115970132982,
+    "test_auc": 0.88662473162831,
+    "oot_auc": 0.8615972825176317,
+    "oot_gini": 0.7231945650352634,
+    "oot_ks": 0.5874727718624807,
     "oot_default_rate": 0.28036437246963564,
-    "oot_mean_pd": 0.2893889597270565,
-    "oot_accuracy": 0.7327935222672065,
-    "oot_precision": 0.5152941176470588,
-    "oot_recall": 0.7906137184115524,
-    "oot_f1": 0.6239316239316239,
-    "oot_approval_rate": 0.569838056680162,
-    "oot_bad_rate_approved": 0.10301953818827708,
-    "oot_bad_rate_declined": 0.5152941176470588
+    "oot_mean_pd": 0.2534323036670685,
+    "oot_accuracy": 0.8147773279352226,
+    "oot_precision": 0.6631944444444444,
+    "oot_recall": 0.6895306859205776,
+    "oot_f1": 0.6761061946902656,
+    "oot_approval_rate": 0.708502024291498,
+    "oot_bad_rate_approved": 0.12285714285714286,
+    "oot_bad_rate_declined": 0.6631944444444444
   },
   "algorithm_comparison": {
     "logistic_regression": {
-      "cv_auc": 0.7995936059915025,
-      "train_auc": 0.8308983959086069,
-      "test_auc": 0.8303397653339265
+      "cv_auc": 0.7882248482416455,
+      "train_auc": 0.8272393884637599,
+      "test_auc": 0.8448340803796752
     },
     "xgboost": {
-      "cv_auc": 0.8149505910066822,
-      "train_auc": 0.979629144775503,
-      "test_auc": 0.8338430740143469
+      "cv_auc": 0.7990436657370522,
+      "train_auc": 0.9964115970132982,
+      "test_auc": 0.88662473162831
     }
   },
   "top_features": {
-    "fe_5_avg": 0.3082546545535002,
-    "Changed_Credit_Limit": 0.2946173448135519,
-    "Interest_Rate": 0.2862500725637777,
-    "spend_level_high": 0.2638437717934218,
-    "fe_4_avg": 0.25166798378447364,
-    "fe_10_avg": 0.24558409484263644,
-    "Num_Credit_Card": 0.22037552134269994,
-    "fe_9_avg": 0.21436938176439646,
-    "Num_Credit_Inquiries": 0.2120683259165311,
-    "Delay_from_due_date": 0.20655817675686777,
-    "fe_3_avg": 0.18447138043453884,
-    "fe_8_avg": 0.1547229249090294,
-    "Outstanding_Debt": 0.1383594301466133,
-    "min_payment_no": 0.12930912460181496,
-    "payment_value_ordinal": 0.12055280993187281
+    "Outstanding_Debt": 0.1104145348072052,
+    "Interest_Rate": 0.03036445379257202,
+    "Num_Credit_Card": 0.02323102205991745,
+    "spend_level_high": 0.02059970423579216,
+    "Changed_Credit_Limit": 0.02010364830493927,
+    "Delay_from_due_date": 0.019727999344468117,
+    "Num_of_Delayed_Payment": 0.019647197797894478,
+    "min_payment_yes": 0.01950889453291893,
+    "fe_10_avg": 0.018872294574975967,
+    "occupation_writer": 0.01846446841955185,
+    "Num_Credit_Inquiries": 0.01832280121743679,
+    "debt_to_annual_income": 0.018273895606398582,
+    "min_payment_nm": 0.018163204193115234,
+    "credit_mix_ordinal": 0.018141966313123703,
+    "fe_9_avg": 0.017580023035407066
   },
   "environment": {
     "python": "3.12.9",
@@ -160,7 +179,7 @@
     "xgboost": "2.1.4",
     "pandas": "2.1.4"
   },
-  "created_at": "2026-11-07T15:06:26",
+  "created_at": "2026-11-08T02:07:46",
   "retrain_reason": "first deployment (go-live)",
   "data_end": "2023-07-01"
 }

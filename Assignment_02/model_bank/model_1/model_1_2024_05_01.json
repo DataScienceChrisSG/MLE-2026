@@ -11,12 +11,25 @@
       "2023-01-01",
       "2023-09-01"
     ],
+    "train_months": [
+      "2023-01-01",
+      "2023-07-01"
+    ],
+    "test_months": [
+      "2023-08-01",
+      "2023-09-01"
+    ],
+    "cv_validation_months": [
+      "2023-05-01",
+      "2023-06-01",
+      "2023-07-01"
+    ],
     "oot_months": [
       "2023-10-01",
       "2023-11-01"
     ],
-    "n_train": 3592,
-    "n_test": 899,
+    "n_train": 3556,
+    "n_test": 935,
     "n_dev": 4491,
     "n_oot": 978,
     "default_rate_dev": 0.28211979514584723,
@@ -108,57 +121,57 @@
     "reg_lambda": 2,
     "n_estimators": 200,
     "min_child_weight": 5,
-    "max_depth": 3,
+    "max_depth": 5,
     "learning_rate": 0.05,
-    "gamma": 0.1,
+    "gamma": 0,
     "colsample_bytree": 0.9
   },
-  "decision_threshold": 0.30138731002807617,
+  "decision_threshold": 0.27434009313583374,
   "metrics": {
-    "cv_auc": 0.8571848713481341,
-    "train_auc": 0.9366950083195312,
-    "test_auc": 0.8528779832753465,
-    "oot_auc": 0.9116354845490855,
-    "oot_gini": 0.823270969098171,
-    "oot_ks": 0.6613201597645575,
+    "cv_auc": 0.8744874257437104,
+    "train_auc": 0.9877980779968895,
+    "test_auc": 0.9042858942209702,
+    "oot_auc": 0.9178368719781375,
+    "oot_gini": 0.8356737439562749,
+    "oot_ks": 0.6942610889215892,
     "oot_default_rate": 0.2740286298568507,
-    "oot_mean_pd": 0.2609659731388092,
-    "oot_accuracy": 0.8445807770961146,
-    "oot_precision": 0.6933333333333334,
-    "oot_recall": 0.7761194029850746,
-    "oot_f1": 0.7323943661971832,
-    "oot_approval_rate": 0.6932515337423313,
-    "oot_bad_rate_approved": 0.08849557522123894,
-    "oot_bad_rate_declined": 0.6933333333333334
+    "oot_mean_pd": 0.25965601205825806,
+    "oot_accuracy": 0.8466257668711656,
+    "oot_precision": 0.6855345911949685,
+    "oot_recall": 0.8134328358208955,
+    "oot_f1": 0.7440273037542663,
+    "oot_approval_rate": 0.6748466257668712,
+    "oot_bad_rate_approved": 0.07575757575757576,
+    "oot_bad_rate_declined": 0.6855345911949685
   },
   "algorithm_comparison": {
     "logistic_regression": {
-      "cv_auc": 0.8314302311286556,
-      "train_auc": 0.851598471518189,
-      "test_auc": 0.8172862113166086
+      "cv_auc": 0.8437236063619915,
+      "train_auc": 0.8401263384155868,
+      "test_auc": 0.8566005977122051
     },
     "xgboost": {
-      "cv_auc": 0.8571848713481341,
-      "train_auc": 0.9366950083195312,
-      "test_auc": 0.8528779832753465
+      "cv_auc": 0.8744874257437104,
+      "train_auc": 0.9877980779968895,
+      "test_auc": 0.9042858942209702
     }
   },
   "top_features": {
-    "Outstanding_Debt": 0.14339247345924377,
-    "Interest_Rate": 0.05754876881837845,
-    "credit_mix_ordinal": 0.04627009481191635,
-    "fe_5_avg": 0.03308052569627762,
-    "Delay_from_due_date": 0.03186574950814247,
-    "min_payment_no": 0.02658219076693058,
-    "fe_10_avg": 0.025863055139780045,
-    "fe_9_avg": 0.025693608447909355,
-    "fe_4_avg": 0.022157253697514534,
-    "spend_level_high": 0.02195185236632824,
-    "Changed_Credit_Limit": 0.021647801622748375,
-    "occupation_accountant": 0.021271193400025368,
-    "Num_Credit_Card": 0.021167729049921036,
-    "fe_3_avg": 0.021118534728884697,
-    "fe_8_avg": 0.020233701914548874
+    "Outstanding_Debt": 0.11935700476169586,
+    "Interest_Rate": 0.050030652433633804,
+    "fe_5_avg": 0.028014302253723145,
+    "Delay_from_due_date": 0.025393864139914513,
+    "fe_10_avg": 0.02235369198024273,
+    "credit_mix_ordinal": 0.020667200908064842,
+    "Num_Credit_Card": 0.02016839012503624,
+    "fe_9_avg": 0.01944223791360855,
+    "fe_4_avg": 0.019206169992685318,
+    "fe_3_avg": 0.019112128764390945,
+    "Num_Bank_Accounts": 0.018558504059910774,
+    "occupation_musician": 0.0182983186095953,
+    "spend_level_high": 0.017777713015675545,
+    "fe_8_avg": 0.017563525587320328,
+    "Num_of_Delayed_Payment": 0.016956059262156487
   },
   "environment": {
     "python": "3.12.9",
@@ -166,7 +179,7 @@
     "xgboost": "2.1.4",
     "pandas": "2.1.4"
   },
-  "created_at": "2026-11-07T15:11:53",
+  "created_at": "2026-11-08T02:14:40",
   "retrain_reason": "scheduled retrain (every 2 months from go-live)",
   "data_end": "2023-11-01"
 }
