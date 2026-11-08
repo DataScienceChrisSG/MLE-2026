@@ -21,7 +21,7 @@ while Spark writes them, and tasks then fail with "path does not exist". To star
 ## Folder structure
 
 ```
-dags/loan_default_ml_pipeline.py   the DAG (28 tasks per monthly run)
+dags/loan_default_ml_pipeline.py   the DAG (27 tasks per monthly run)
 scripts/                           one entry point per task, each takes --snapshotdate YYYY-MM-DD
   check_source_data.py             source files present with expected columns
   data_pipeline.py                 bronze / silver / gold for one table and month (Assignment 1 code)
